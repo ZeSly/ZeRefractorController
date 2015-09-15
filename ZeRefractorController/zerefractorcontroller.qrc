@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/ZeRefractorController">
+        <file>Resources/TK004.png</file>
+        <file>Resources/add.png</file>
+        <file>Resources/remove.png</file>
+    </qresource>
+</RCC>
