@@ -221,12 +221,14 @@ void ZeRefractorController::on_timerTemperature()
     else
     {
         int t;
+		int16_t tt;
         QLocale locale;
 
         UsbHid->ExchangeMessage(HID_PnP::FTR, &t);
-        Temperature = (double)t / 10;
-        //ui->lcdTemperature->display(QString("%1").arg(Temperature, 0, 'f', 1));
-        ui->lcdTemperature->display(Temperature);
+		tt = (int16_t)t;
+        Temperature = (double)tt / 10;
+        ui->lcdTemperature->display(QString("%1").arg(Temperature, 0, 'f', 1));
+        //ui->lcdTemperature->display(Temperature);
         ui->label_WeatherTemperature->setText(QString::fromUtf8("%1""\xC2\xB0""C").arg(Temperature));
         ui->frameTemperatureGraph->addValue(Temperature);
         timerTemperature->start(100);
