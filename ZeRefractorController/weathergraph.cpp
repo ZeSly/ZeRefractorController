@@ -1,4 +1,5 @@
-#include <QtGui>
+#include <QPainter>
+#include <QMouseEvent>
 #include "weathergraph.h"
 
 #define POSITON_ORDONNE 40
