@@ -41,11 +41,19 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "D:\Users\ZeSly\Documents\Visual Studio 2010\Projects\ZeRefractorController\Release\ZeRefractorController.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Users\ZeSly\Documents\Visual Studio 2010\Projects\ZeRefractorController\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Users\ZeSly\Documents\Visual Studio 2010\Projects\ZeRefractorController\Release\platforms\*.dll"; DestDir: "{app}\platforms"; Flags: ignoreversion
-Source: "D:\Users\ZeSly\Documents\Visual Studio 2010\Projects\ZeRefractorController\qt.conf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Users\ZeSly\Documents\Visual Studio 2010\Projects\ZeRefractorController\ASCOM_Driver\bin\Release\ASCOM.ZeRefractorController.Focuser.dll"; Tasks: ascom; DestDir: "{app}"
+; 64 bits
+Source: "x64\Release\ZeRefractorController.exe"; DestDir: "{app}"; Check: Is64BitInstallMode; Flags: ignoreversion
+Source: "x64\Release\*.dll"; DestDir: "{app}"; Check: Is64BitInstallMode; Flags: ignoreversion
+Source: "x64\Release\platforms\*.dll"; DestDir: "{app}\platforms"; Check: Is64BitInstallMode; Flags: ignoreversion
+; 32 bits
+Source: "Release\ZeRefractorController.exe"; DestDir: "{app}"; Check: not Is64BitInstallMode; Flags: ignoreversion solidbreak
+Source: "Release\*.dll"; DestDir: "{app}"; Check: not Is64BitInstallMode; Flags: ignoreversion
+Source: "Release\platforms\*.dll"; DestDir: "{app}\platforms"; Check: not Is64BitInstallMode; Flags: ignoreversion
+;Source: "Release\qt.conf"; DestDir: "{app}"; Flags: ignoreversion
+; ASCOM driver, 32 and 64 bits
+Source: "ASCOM_Driver\bin\Release\ASCOM.ZeRefractorController.Focuser.dll"; Tasks: ascom; DestDir: "{app}"; Flags: ignoreversion solidbreak
+; Firmware
+Source: "D:\Users\ZeSly\MPLABXProjects\ZeRefractorController.X\release\*.hex"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
