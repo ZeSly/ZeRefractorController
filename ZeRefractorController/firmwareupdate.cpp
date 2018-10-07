@@ -699,7 +699,7 @@ void FirmwareUpdate::LoadFile(QString newFileName)
     hexData->ranges.clear();
 
     //Print some debug info to the debug window.
-    qDebug(QString("Total Programmable Regions Reported by Device: " + QString::number(deviceData->ranges.count(), 10)).toLatin1());
+    qDebug("Total Programmable Regions Reported by Device: %d", deviceData->ranges.count());
 
     //First duplicate the deviceData programmable region list and
     //allocate some RAM buffers to hold the hex data that we are about to import.
@@ -714,8 +714,9 @@ void FirmwareUpdate::LoadFile(QString newFileName)
         hexData->ranges.append(range);
 
         //Print info regarding the programmable memory region to the debug window.
-        qDebug(QString("Device Programmable Region: [" + QString::number(range.start, 16).toUpper() + " - " +
-                   QString::number(range.end, 16).toUpper() +"]").toLatin1());
+		qDebug("Device Programmable Region: [%x - %x]", range.start, range.end);
+        // qDebug(QString("Device Programmable Region: [" + QString::number(range.start, 16).toUpper() + " - " +
+                   // QString::number(range.end, 16).toUpper() +"]").toLatin1());
     }
 
     //Import the hex file data into the hexData->ranges[].pDataBuffer buffers.
@@ -877,7 +878,7 @@ void FirmwareUpdate::GetQuery()
                 qDebug("Device bootloader firmware is v1.01 or newer and supports Extended Query.");
                 //Now fetch the extended query information packet from the USB firmware.
                 comm->ReadExtendedQueryInfo(&extendedBootInfo);
-                qDebug("Device bootloader firmware version is: " + extendedBootInfo.PIC18.bootloaderVersion);
+                qDebug("Device bootloader firmware version is: %d",extendedBootInfo.PIC18.bootloaderVersion);
             }
             else
             {
