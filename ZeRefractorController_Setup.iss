@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "ZeRefractorController"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1.0.0"
 #define MyAppPublisher "ZeSly"
 #define MyAppURL "http://www.zesly.net/"
 #define MyAppExeName "ZeRefractorController.exe"
@@ -23,12 +23,11 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir="."
-OutputBaseFilename="ZeRefractorController_Setup"
+OutputBaseFilename="ZeRefractorController_Setup_{#MyAppVersion}"
 Compression=lzma
 SolidCompression=yes
-; Put there by Platform if Driver Installer Support selected
-;WizardImageFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\WizardImage.bmp"
-LicenseFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\CreativeCommons.txt"
+WizardStyle=modern
+LicenseFile="Licence_CeCILL_V2.1-en.txt"
 ; {cf}\ASCOM\Uninstall\Focuser folder created by Platform, always
 UninstallFilesDir="{app}\Uninstall"
 
