@@ -1,8 +1,8 @@
 1 ICON "tak.ico"
 
 1 VERSIONINFO
- FILEVERSION 1,0,0,0
- PRODUCTVERSION 1,0,0,0
+ FILEVERSION 1,1,0,0
+ PRODUCTVERSION 1,1,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -19,12 +19,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "ZeSly"
             VALUE "FileDescription", "Ze Refractor Controller"
-            VALUE "FileVersion", "1.0.0.0"
+            VALUE "FileVersion", "1.1.0.0"
             VALUE "InternalName", "ZeRefractorController.exe"
-            VALUE "LegalCopyright", "(c) Sylvain Girard 2012"
+            VALUE "LegalCopyright", "(c) Sylvain Girard 2012-2019"
             VALUE "OriginalFilename", "ZeRefractorController.exe"
             VALUE "ProductName", "ZeRefractorController"
-            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"

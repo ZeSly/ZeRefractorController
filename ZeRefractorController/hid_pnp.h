@@ -25,6 +25,7 @@ public:
         FABOUT,
         DS,
 
+        FTN,    // read sensor number 
         FTM,    // Measure temperature sensor 1
         FT2M,   // Measure temperature sensor 2
         FTR,    // Read temperature sensor 1

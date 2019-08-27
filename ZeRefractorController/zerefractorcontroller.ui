@@ -144,11 +144,24 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_temperature">
-          <property name="text">
-           <string>Temperature :</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <property name="spacing">
+           <number>6</number>
           </property>
-         </widget>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_temperature">
+            <property name="text">
+             <string>Temperature :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_num_sensor"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLCDNumber" name="lcdTemperature">
@@ -1172,73 +1185,28 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-202</y>
-             <width>251</width>
-             <height>541</height>
+             <y>0</y>
+             <width>297</width>
+             <height>560</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
-            <item row="19" column="0" colspan="4">
-             <widget class="QGroupBox" name="groupBox_log">
-              <property name="title">
-               <string>Logging</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_2">
-               <item row="0" column="0">
-                <widget class="QCheckBox" name="checkBox_enableLog">
-                 <property name="text">
-                  <string>Enable</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLineEdit" name="lineEdit_logPath">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QPushButton" name="pushButton_logBrowse">
-                 <property name="maximumSize">
-                  <size>
-                   <width>26</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+            <item row="0" column="1" colspan="3">
+             <widget class="QComboBox" name="comboBox_stepper_mode"/>
             </item>
-            <item row="8" column="3">
-             <widget class="QLabel" name="label_steps_6">
+            <item row="5" column="3">
+             <widget class="QLabel" name="label_steps_3">
               <property name="text">
                <string>steps</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="0" colspan="2">
-             <widget class="QLabel" name="label_stepper_delay_auto">
-              <property name="minimumSize">
-               <size>
-                <width>99</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
+            <item row="4" column="3">
+             <widget class="QLabel" name="label_steps_2">
               <property name="text">
-               <string>Step delay, auto :</string>
+               <string>steps</string>
               </property>
              </widget>
-            </item>
-            <item row="0" column="1" colspan="3">
-             <widget class="QComboBox" name="comboBox_stepper_mode"/>
             </item>
             <item row="1" column="2">
              <widget class="QLineEdit" name="lineEdit_StepModeAuto">
@@ -1253,72 +1221,10 @@
               </property>
              </widget>
             </item>
-            <item row="17" column="2">
-             <widget class="QLineEdit" name="lineEdit_CurrentPosition">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="15" column="0" colspan="3">
-             <widget class="QCheckBox" name="checkBox_PositiveDeltaTempMoveIn">
-              <property name="text">
-               <string>Positive delta T° move IN</string>
-              </property>
-             </widget>
-            </item>
-            <item row="18" column="2">
-             <widget class="QPushButton" name="pushButtonSteCurrentPosition">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Set</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="3">
-             <widget class="QLabel" name="label_steps">
+            <item row="8" column="3">
+             <widget class="QLabel" name="label_steps_6">
               <property name="text">
                <string>steps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0" colspan="2">
-             <widget class="QLabel" name="label_min_position">
-              <property name="minimumSize">
-               <size>
-                <width>99</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <property name="text">
-               <string>Minimum position :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="2">
-             <widget class="QLineEdit" name="lineEdit_MinPosition">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
               </property>
              </widget>
             </item>
@@ -1332,52 +1238,6 @@
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" colspan="2">
-             <widget class="QLabel" name="label_stepper_delay_manual">
-              <property name="minimumSize">
-               <size>
-                <width>99</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <property name="text">
-               <string>Step delay, manual :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="3">
-             <widget class="QLabel" name="label_ms_2">
-              <property name="text">
-               <string>ms</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="3">
-             <widget class="QLabel" name="label_ms">
-              <property name="text">
-               <string>ms</string>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="0">
-             <widget class="QLabel" name="label_power_alarm">
-              <property name="minimumSize">
-               <size>
-                <width>99</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <property name="text">
-               <string>Low power alarm :</string>
               </property>
              </widget>
             </item>
@@ -1397,66 +1257,10 @@
               </property>
              </widget>
             </item>
-            <item row="5" column="3">
-             <widget class="QLabel" name="label_steps_3">
+            <item row="3" column="3">
+             <widget class="QLabel" name="label_steps">
               <property name="text">
                <string>steps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="3">
-             <widget class="QLabel" name="label_steps_5">
-              <property name="text">
-               <string>steps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="3">
-             <widget class="QLabel" name="label_steps_2">
-              <property name="text">
-               <string>steps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="2">
-             <widget class="QLineEdit" name="lineEdit_InitialPosition">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="2">
-             <widget class="QLineEdit" name="lineEdit_MaxPosition">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0" colspan="2">
-             <widget class="QLabel" name="label_max_position">
-              <property name="minimumSize">
-               <size>
-                <width>99</width>
-                <height>16</height>
-               </size>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <property name="text">
-               <string>Maximum position :</string>
               </property>
              </widget>
             </item>
@@ -1502,8 +1306,8 @@
               </property>
              </widget>
             </item>
-            <item row="8" column="0" colspan="2">
-             <widget class="QLabel" name="label_temperature_coeff">
+            <item row="1" column="0" colspan="2">
+             <widget class="QLabel" name="label_stepper_delay_auto">
               <property name="minimumSize">
                <size>
                 <width>99</width>
@@ -1514,12 +1318,59 @@
                <enum>QFrame::Plain</enum>
               </property>
               <property name="text">
-               <string>Temperature coeff. :</string>
+               <string>Step delay, auto :</string>
               </property>
              </widget>
             </item>
-            <item row="9" column="0" colspan="2">
-             <widget class="QLabel" name="label_power_supply">
+            <item row="3" column="2">
+             <widget class="QLineEdit" name="lineEdit_MinPosition">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <widget class="QLabel" name="label_ms_2">
+              <property name="text">
+               <string>ms</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLabel" name="label_ms">
+              <property name="text">
+               <string>ms</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <widget class="QLineEdit" name="lineEdit_InitialPosition">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="3">
+             <widget class="QLabel" name="label_steps_5">
+              <property name="text">
+               <string>steps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QLabel" name="label_stepper_delay_manual">
               <property name="minimumSize">
                <size>
                 <width>99</width>
@@ -1530,7 +1381,138 @@
                <enum>QFrame::Plain</enum>
               </property>
               <property name="text">
-               <string>Power supply :</string>
+               <string>Step delay, manual :</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLineEdit" name="lineEdit_MaxPosition">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="17" column="2">
+             <widget class="QLineEdit" name="lineEdit_CurrentPosition">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="18" column="2">
+             <widget class="QPushButton" name="pushButtonSteCurrentPosition">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Set</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" colspan="2">
+             <widget class="QLabel" name="label_max_position">
+              <property name="minimumSize">
+               <size>
+                <width>99</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="text">
+               <string>Maximum position :</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="label_power_alarm">
+              <property name="minimumSize">
+               <size>
+                <width>99</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="text">
+               <string>Low power alarm :</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <widget class="QLabel" name="label_min_position">
+              <property name="minimumSize">
+               <size>
+                <width>99</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="text">
+               <string>Minimum position :</string>
+              </property>
+             </widget>
+            </item>
+            <item row="15" column="0" colspan="3">
+             <widget class="QCheckBox" name="checkBox_PositiveDeltaTempMoveIn">
+              <property name="text">
+               <string>Positive delta T° move IN</string>
+              </property>
+             </widget>
+            </item>
+            <item row="22" column="0">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="17" column="3">
+             <widget class="QLabel" name="label_steps_4">
+              <property name="text">
+               <string>steps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="16" column="0" colspan="3">
+             <widget class="QCheckBox" name="checkBox_KeepPowerMotoStopped">
+              <property name="text">
+               <string>Keep power on motor stopped</string>
+              </property>
+             </widget>
+            </item>
+            <item row="24" column="0">
+             <widget class="QPushButton" name="pushButtonToggleLED">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Toggle LED</string>
               </property>
              </widget>
             </item>
@@ -1550,24 +1532,40 @@
               </property>
              </widget>
             </item>
-            <item row="7" column="2">
-             <widget class="QLineEdit" name="lineEdit_Backlash">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_stepper_mode">
+              <property name="minimumSize">
+               <size>
+                <width>71</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
               </property>
               <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               <string>Stepper mode :</string>
               </property>
              </widget>
             </item>
-            <item row="10" column="2">
-             <widget class="QLineEdit" name="lineEdit_LowPowerAlarm">
+            <item row="8" column="0" colspan="2">
+             <widget class="QLabel" name="label_temperature_coeff">
+              <property name="minimumSize">
+               <size>
+                <width>99</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="text">
+               <string>Temperature coeff. :</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="2">
+             <widget class="QLineEdit" name="lineEdit_Backlash">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -1598,54 +1596,26 @@
               </property>
              </widget>
             </item>
-            <item row="17" column="3">
-             <widget class="QLabel" name="label_steps_4">
-              <property name="text">
-               <string>steps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="22" column="0">
-             <widget class="QPushButton" name="pushButtonSave">
-              <property name="text">
-               <string>&amp;Save</string>
-              </property>
-             </widget>
-            </item>
-            <item row="21" column="0">
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="16" column="0" colspan="3">
-             <widget class="QCheckBox" name="checkBox_KeepPowerMotoStopped">
-              <property name="text">
-               <string>Keep power on motor stopped</string>
-              </property>
-             </widget>
-            </item>
-            <item row="23" column="0">
-             <widget class="QPushButton" name="pushButtonToggleLED">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="text">
-               <string>Toggle LED</string>
-              </property>
-             </widget>
-            </item>
             <item row="14" column="0" colspan="3">
              <widget class="QCheckBox" name="checkBox_InvertMotor">
               <property name="text">
                <string>Invert motor</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0" colspan="2">
+             <widget class="QLabel" name="label_power_supply">
+              <property name="minimumSize">
+               <size>
+                <width>99</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="text">
+               <string>Power supply :</string>
               </property>
              </widget>
             </item>
@@ -1656,23 +1626,7 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_stepper_mode">
-              <property name="minimumSize">
-               <size>
-                <width>71</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <property name="text">
-               <string>Stepper mode :</string>
-              </property>
-             </widget>
-            </item>
-            <item row="22" column="2" colspan="2">
+            <item row="23" column="2" colspan="2">
              <widget class="QLabel" name="label_ver">
               <property name="text">
                <string>Firmware</string>
@@ -1682,7 +1636,7 @@
               </property>
              </widget>
             </item>
-            <item row="23" column="2" colspan="2">
+            <item row="24" column="2" colspan="2">
              <widget class="QPushButton" name="pushButtonFirmwareUpdate">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -1692,6 +1646,72 @@
               </property>
               <property name="text">
                <string>Firmware Update</string>
+              </property>
+             </widget>
+            </item>
+            <item row="23" column="0">
+             <widget class="QPushButton" name="pushButtonSave">
+              <property name="text">
+               <string>&amp;Save</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="2">
+             <widget class="QLineEdit" name="lineEdit_LowPowerAlarm">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="19" column="0" colspan="4">
+             <widget class="QGroupBox" name="groupBox_log">
+              <property name="title">
+               <string>Logging</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_2">
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="checkBox_enableLog">
+                 <property name="text">
+                  <string>Enable</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLineEdit" name="lineEdit_logPath">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="pushButton_logBrowse">
+                 <property name="maximumSize">
+                  <size>
+                   <width>26</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="21" column="0">
+             <widget class="QLabel" name="label_number_temperature_sensor">
+              <property name="text">
+               <string>Number of temperature sensors :</string>
               </property>
              </widget>
             </item>

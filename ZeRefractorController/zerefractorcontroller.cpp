@@ -29,6 +29,7 @@ ZeRefractorController::ZeRefractorController(QWidget *parent) :
     ui->frameHumidityGraph->setFormat(QString("%1%"));
     ui->frameHumidityGraph->setLabelPrecison(10);
     ui->tableWidget_Positons->setColumnWidth(2, 32);
+    ui->comboBox_num_sensor->setVisible(false);
     
     positionsSignalMapper = new QSignalMapper(this);
     connect(positionsSignalMapper, SIGNAL(mapped(int)), this, SLOT(on_GoPushButton_clicked(int)));
@@ -178,6 +179,21 @@ void ZeRefractorController::update_gui(bool isConnected)
     {
         if (!wasConnected)
         {
+            int num_sensor;
+            char *devices;
+            UsbHid->ExchangeMessage(HID_PnP::FTN, &num_sensor);
+            UsbHid->ExchangeMessage(HID_PnP::DS, &devices);
+            if (num_sensor > 1)
+            {
+                ui->comboBox_num_sensor->clear();
+                for (int s = 0; s < num_sensor; s++)
+                    ui->comboBox_num_sensor->addItem(QString("Sensor %1").arg(s + 1));
+                ui->comboBox_num_sensor->setVisible(true);
+            }
+            else
+            {
+                ui->comboBox_num_sensor->setVisible(false);
+            }
             measureTemperature = true;
             timerTemperature->start(100);
         }
@@ -214,7 +230,16 @@ void ZeRefractorController::on_timerTemperature()
 {
     if (measureTemperature)
     {
-        UsbHid->ExchangeMessage(HID_PnP::FTM);
+        if (ui->comboBox_num_sensor->count() > 1)
+        {
+            int r;
+            char num_sensor = ui->comboBox_num_sensor->currentIndex();
+            UsbHid->ExchangeMessage(HID_PnP::FT2M, num_sensor, &r);
+        }
+        else
+        {
+            UsbHid->ExchangeMessage(HID_PnP::FTM);
+        }
         timerTemperature->start(1900);
         measureTemperature = false;
     }
@@ -224,9 +249,18 @@ void ZeRefractorController::on_timerTemperature()
 		int16_t tt;
         QLocale locale;
 
-        UsbHid->ExchangeMessage(HID_PnP::FTR, &t);
+        if (ui->comboBox_num_sensor->count() > 1)
+        {
+            char num_sensor = ui->comboBox_num_sensor->currentIndex();
+            UsbHid->ExchangeMessage(HID_PnP::FT2R, num_sensor, &t);
+        }
+        else
+        {
+            UsbHid->ExchangeMessage(HID_PnP::FTR, &t);
+        }
 		tt = (int16_t)t;
         Temperature = (double)tt / 10;
+
         ui->lcdTemperature->display(QString("%1").arg(Temperature, 0, 'f', 1));
         //ui->lcdTemperature->display(Temperature);
         ui->label_WeatherTemperature->setText(QString::fromUtf8("%1""\xC2\xB0""C").arg(Temperature));
@@ -452,7 +486,13 @@ void ZeRefractorController::on_tabWidget_currentChanged(int index)
         char *version;
         if (UsbHid->ExchangeMessage(HID_PnP::FVERSION, &version))
             ui->label_ver->setText(QString("Firmware %1").arg(version));
-        
+
+        val = 0;
+        if (UsbHid->ExchangeMessage(HID_PnP::FTN, &val))
+        {
+            ui->label_number_temperature_sensor->setText(QString("%1 temperature sensors").arg(val));
+        }
+
         val = 0;
         if (UsbHid->ExchangeMessage(HID_PnP::FSCR , &val))
         {
