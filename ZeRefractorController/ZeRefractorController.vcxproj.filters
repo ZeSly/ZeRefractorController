@@ -176,4 +176,7 @@
       <Filter>Translation Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="tak.ico" />
+  </ItemGroup>
 </Project>
