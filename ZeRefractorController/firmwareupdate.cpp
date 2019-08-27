@@ -92,7 +92,7 @@ FirmwareUpdate::FirmwareUpdate(QString file, QWidget *parent) :
     }
     else
     {
-        ui->plainTextEdit->appendPlainText("Device not detected.  Verify device is attached and in firmware update mode.");
+        ui->plainTextEdit->appendPlainText("Waiting for firmware update mode...");
         //deviceLabel.setText("Disconnected");
         hexOpen = false;
         ui->pushButtonClose->setEnabled(true);
@@ -575,7 +575,6 @@ void FirmwareUpdate::VerifyDevice()
     {
         emit IoWithDeviceCompleted("Verify", Comm::Success, ((double)elapsed.elapsed()) / 1000);
         emit AppendString("Erase/Program/Verify sequence completed successfully.");
-        emit AppendString("You may now unplug or reset the device.");
     }
 
     emit SetProgressBar(100);   //Set progress bar to 100%
