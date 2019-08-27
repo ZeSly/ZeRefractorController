@@ -1,3 +1,4 @@
+#include <math.h>
 #include <QPainter>
 #include <QMouseEvent>
 #include "weathergraph.h"
@@ -166,7 +167,7 @@ int WeatherGraph::getCursorIndex(int pos_graph)
     return index;
 }
 
-void WeatherGraph::setFormat(QString &f)
+void WeatherGraph::setFormat(QString f)
 {
     valueFormat = f;
 }

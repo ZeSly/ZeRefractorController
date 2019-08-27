@@ -231,7 +231,7 @@ HexImporter::ErrorCode HexImporter::ImportHexFile(QString fileName, DeviceData* 
                     //Print debug output text to debug window
                     if(i == 0)
                     {
-                        qDebug(QString("Importing .hex file line with device address: 0x" + QString::number(deviceAddress, 16)).toLatin1());
+                        qDebug("Importing .hex file line with device address: 0x%x", deviceAddress);
                     }
 
                     //Fetch ASCII encoded payload byte from .hex file and save the byte to our temporary RAM buffer.
@@ -269,7 +269,7 @@ HexImporter::ErrorCode HexImporter::ImportHexFile(QString fileName, DeviceData* 
     //Check if we imported any data from the .hex file.
     if(importedAtLeastOneByte == true)
     {
-        qDebug(QString("Hex File imported successfully.").toLatin1());
+        qDebug("Hex File imported successfully.");
         return Success;
     }
     else

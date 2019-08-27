@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <QFuture>
-#include "ui_firmwareupdate.h"
+#include "ui_FirmwareUpdate.h"
 
 #include "Comm.h"
 #include "DeviceData.h"

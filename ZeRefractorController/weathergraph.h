@@ -19,7 +19,7 @@ class WeatherGraph : public QFrame
 public:
     WeatherGraph(QWidget *parent);
     ~WeatherGraph();
-    void setFormat(QString &f);
+    void setFormat(QString f);
     void setLabelPrecison(unsigned int p);
     void addValue(double Value);
 
